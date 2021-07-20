@@ -1,0 +1,71 @@
+{
+	"ABI version": 2,
+	"header": ["pubkey", "time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "_send",
+			"inputs": [
+				{"components":[{"name":"amount","type":"uint128"},{"name":"dest","type":"address"}],"name":"transfers","type":"tuple[]"},
+				{"name":"unit","type":"uint128"}
+			],
+			"outputs": [
+				{"name":"total_amount","type":"uint128"}
+			]
+		},
+		{
+			"name": "_sendall",
+			"inputs": [
+				{"name":"dests","type":"address[]"},
+				{"name":"amount","type":"uint128"},
+				{"name":"unit","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "send_tons",
+			"inputs": [
+				{"components":[{"name":"amount","type":"uint128"},{"name":"dest","type":"address"}],"name":"transfers","type":"tuple[]"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "send_nanotons",
+			"inputs": [
+				{"components":[{"name":"amount","type":"uint128"},{"name":"dest","type":"address"}],"name":"transfers","type":"tuple[]"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "sendall_tons",
+			"inputs": [
+				{"name":"dests","type":"address[]"},
+				{"name":"amount","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "sendall_nanotons",
+			"inputs": [
+				{"name":"dests","type":"address[]"},
+				{"name":"amount","type":"uint128"}
+			],
+			"outputs": [
+			]
+		}
+	],
+	"data": [
+	],
+	"events": [
+	]
+}
