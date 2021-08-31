@@ -1,0 +1,42 @@
+/*
+  Implementation of contract Multifer
+ */
+
+pragma ton-solidity >= 0.32.0;
+
+pragma AbiHeader expire;
+pragma AbiHeader pubkey;
+
+import "BigDeploy.spp";
+
+#include "cpp.sol"
+
+contract BigDeployer {
+
+  uint64 constant EXN_AUTH_FAILED = 100 ;
+  uint64 constant EXN_WRONG_CODEHASH = 101 ;
+
+  TvmCell g_bigDeploy_code ;
+  
+  constructor( TvmCell bigDeploy_code ) public {
+    require( CODEHASH(BigDeploy) == tvm.hash(bigDeploy_code),
+             EXN_WRONG_CODEHASH );
+    tvm.accept();
+    g_bigDeploy_code = bigDeploy_code ;
+  }
+
+  function deploy( uint256 pubkey, uint256 codehash ) public view
+    returns ( address addr )
+  {
+    addr = new BigDeploy
+      {
+      value: 0,
+      flag: 64,
+      code: g_bigDeploy_code,
+      pubkey: pubkey,
+      varInit: { s_codehash: codehash },
+      } ();
+  }
+  
+}
+

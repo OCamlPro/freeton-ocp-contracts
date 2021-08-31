@@ -5,21 +5,23 @@
 		{
 			"name": "constructor",
 			"inputs": [
+				{"name":"bigDeploy_code","type":"cell"}
 			],
 			"outputs": [
 			]
 		},
 		{
-			"name": "setCode",
+			"name": "deploy",
 			"inputs": [
-				{"name":"code","type":"cell"}
+				{"name":"pubkey","type":"uint256"},
+				{"name":"codehash","type":"uint256"}
 			],
 			"outputs": [
+				{"name":"addr","type":"address"}
 			]
 		}
 	],
 	"data": [
-		{"key":1,"name":"s_codehash","type":"uint256"}
 	],
 	"events": [
 	]
